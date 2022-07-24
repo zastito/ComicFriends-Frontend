@@ -1,0 +1,101 @@
+<app-top-bar2></app-top-bar2>
+
+<div class="container">
+
+<h2>Perfil del usuario</h2>
+
+<h4> <br> Email: &nbsp;&nbsp;{{ email }} </h4>
+<h4> Usuario: &nbsp;&nbsp;{{ username }} </h4>
+<h4> Nombre: &nbsp;&nbsp;{{ name }} </h4>
+<h4> Sexo: &nbsp;&nbsp;{{ sex }} </h4>
+<h4> País: &nbsp;&nbsp;{{ country }} </h4>
+<h4> Descripción: &nbsp;&nbsp;{{ description }} </h4>
+
+<button (click)="onClick()">
+Editar
+</button>
+
+<br/><br/><br/><br/>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(password.value, email, username, name, sex, country, description)">
+
+<div>
+<label for="password">
+¿Desea cambiar la contraseña?
+</label><br/>
+<input id="password" type="password" formControlName="password" #password>&nbsp;
+<button class="button" type="submit">Enviar</button>
+</div>
+</form>
+
+<br/>
+<h3>Mis listas de cómics</h3>
+
+<p><a routerLink="/list">Cómics en propiedad</a></p>
+<p><a routerLink="/listsaled">Cómics a la venta</a></p>
+<p><a routerLink="/listdesired">Cómics deseados</a></p>
+
+<br/>
+
+<h2>Opiniones de vendedores</h2>
+
+<div *ngFor="let review of reviews; let i = index" [attr.data-index]="i">
+<div *ngIf="review.type === 'USER'">
+  <h4 *ngIf="usernames[i]">
+    <br/>{{ usernames[i] }}
+    </h4>
+  <h3 *ngIf="review.title">
+    {{ review.title }}
+  </h3>
+  <p *ngIf="review.comment">
+    {{ review.comment }}
+  </p>
+  <p *ngIf="review.score">
+  Puntuacion: {{ review.score }}
+  </p>
+  <p *ngIf="review.date">
+  {{ review.date }}
+  </p>
+  <button (click)="deleteReview(review.reviewId)">
+  Eliminar
+  </button>
+</div>
+</div>
+
+<br/><br/>
+
+<h2>Opiniones de cómics</h2>
+
+<div *ngFor="let review of reviews; let i = index" [attr.data-index]="i">
+<div *ngIf="review.type === 'COMIC'">
+  <h4 *ngIf="comictitles[i]">
+  <br/>{{ comictitles[i] }}: 
+  </h4>
+  <h4 *ngIf="review.title">
+  {{ review.title }}
+  </h4>
+  <p *ngIf="review.comment">
+    {{ review.comment }}
+  </p>
+  <p *ngIf="review.score">
+  Puntuacion: {{ review.score }}
+  </p>
+  <p *ngIf="review.date">
+  {{ review.date }}
+  </p>
+  <button (click)="deleteReview(review.reviewId)">
+  Eliminar
+  </button>
+</div>
+</div>
+
+<br/><br/>
+<p> <a routerLink="/">Cerrar sesión</a>  </p> 
+
+<button (click)="delete()">
+Eliminar cuenta
+</button>
+
+<br/><br/><br/>
+
+</div>

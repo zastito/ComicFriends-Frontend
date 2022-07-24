@@ -1,0 +1,87 @@
+<app-top-bar2></app-top-bar2>
+
+<div class="container">
+<h2>Bienvenido !!!!</h2> <br/>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(comic.value)">
+
+<div>
+  <label for="comic">
+    ¿Que cómic deseas comprar?
+  </label><br/>
+  <input id="comic" type="text" formControlName="comic" #comic>
+  &nbsp;
+  <button class="button" type="submit">Buscar</button>
+</div>
+
+</form>
+
+<br/><br/>
+
+<div *ngFor="let comicPrice of comicPrices; index as indexOfelement;">
+<!--<div
+style="width: 45%;
+       float: left;
+       background-color: #EEEEEE;
+       white-space: nowrap;
+       overflow:hidden !important;
+       text-overflow: ellipsis;">-->
+  <h3>
+    <a 
+      [title]="comicPrice.title"
+      [routerLink]="['/comic', comicPrice.comicId]">
+      {{ comicPrice.title }}
+    </a>
+  </h3>
+
+  <!--
+  <p *ngIf="comic.creators">
+    Creators: {{ comic.creators }}<br/>
+  </p>-->
+  <p *ngIf="comicPrice.publisher">
+  Publisher: {{ comicPrice.publisher }}<br/>
+  </p>
+  <p *ngIf="comicPrice.volume">
+  Volume: {{ comicPrice.volume }}<br/>
+  </p>
+  <p *ngIf="comicPrice.issue">
+  Issue: {{ comicPrice.issue }}<br/>
+  </p> 
+  <p *ngIf="comicPrice.amount">
+  Amount: {{ comicPrice.amount }}
+  </p> 
+  <p *ngIf="comicPrice.price">
+  Price: {{ comicPrice.price }}€
+  </p>
+  <p *ngIf="comicPrice.owner">
+  Owner:   <a 
+  [title]="comicPrice.owner"
+  [routerLink]="['/user', comicPrice.userId]">
+  {{ comicPrice.owner }}
+</a>
+  </p> 
+<!--
+  <div *ngFor="let user of user">
+  <p *ngIf="comic.owner">
+  Owner: <a 
+  [title]="comic.owner"
+  [routerLink]="['/profile', user.id]">
+  {{ comic.owner }}
+  </a> 
+  </p> 
+  </div>
+-->
+
+<div *ngIf="comicPrice.title">
+  <button (click)="buy(comicPrice.comicPriceId)">
+    Comprar
+  </button>&nbsp;
+  <button (click)="onClick2(indexOfelement, comicPrices)">
+  Lo quiero
+  </button>
+  <br/><br/>
+</div>
+
+</div>
+</div>
+

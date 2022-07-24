@@ -1,0 +1,57 @@
+<app-top-bar2></app-top-bar2>
+
+<div class="container">
+
+<h2>Perfil del usuario</h2>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(email.value, user.value, name.value, sex.value, country.value, description.value)">
+
+<div>
+<label for="email">
+  Email
+</label>
+<textarea name="email" #email>{{email1}}</textarea>
+</div><br>
+
+<div>
+  <label for="user">
+    Usuario
+  </label>
+  <textarea name="user" #user>{{username}}</textarea>
+</div><br>
+
+<div>
+<label for="name">
+  Nombre
+</label>
+<textarea name="name" #name>{{name1}}</textarea>
+</div><br>
+
+<div>
+<label for="sex">
+  Sexo
+</label>
+<textarea name="sex" #sex>{{sex1}}</textarea>
+</div><br>
+
+<div>
+<label for="country">
+  Pais
+</label>
+<textarea name="country" #country>{{country1}}</textarea> 
+</div><br>
+
+<div>
+<label for="description">
+  Descripcion
+</label>
+<textarea name="description" #description>{{description1}}</textarea> 
+</div>
+
+<br><br>
+
+<button class="button" type="submit">Guardar</button>
+
+</form>
+
+</div>

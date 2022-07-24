@@ -1,0 +1,41 @@
+<app-top-bar2></app-top-bar2>
+
+<div
+style="  width: 70%;
+justify-content: center;
+align-items: center;
+margin-left: 15%;
+margin-top: 10%">
+
+<h2>Lista de comics</h2> <br/> 
+
+<div *ngFor="let comic of comics; index as indexOfelement;">
+  <h3>
+    <a [routerLink]="['/comic', comic.comicId]">
+      {{ comic.title }} 
+    </a>
+  </h3>
+
+  <!---
+  <p *ngIf="comic.creators">
+    Creators: {{ comic.creators }}<br/>
+  </p>-->
+  <p *ngIf="comic.publisher">
+  Publisher: {{ comic.publisher }}<br/>
+  </p>
+  <p *ngIf="comic.volume">
+  Volume: {{ comic.volume }}<br/>
+  </p>
+  <p *ngIf="comic.issue">
+  Issue: {{ comic.issue }}<br/>
+  </p> 
+
+  <button (click)="delete(indexOfelement)">
+  Eliminar
+  </button>
+  <br/> <br/>
+
+<br/><br/>
+
+</div>
+</div>

@@ -1,0 +1,41 @@
+<app-top-bar2></app-top-bar2>
+
+<div class="container">
+
+<h2>Datos de envío</h2>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+<div>
+<label for="direccion">
+  Dirección
+</label>
+<input id="direccion" type="text" formControlName="direccion"> 
+</div>
+
+<div>
+  <label for="localidad">
+    Localidad
+  </label>
+<input id="localidad" type="text" formControlName="localidad"> 
+</div>
+
+<div>
+<label for="provincia">
+  Provincia
+</label>
+<input id="provincia" type="text" formControlName="provincia"> 
+</div>
+
+<div>
+<label for="pais">
+  Pais
+</label>
+<input id="pais" type="text" formControlName="pais"> 
+</div>
+
+<button class="button" type="submit">Confirmar</button>
+
+</form>
+
+</div>

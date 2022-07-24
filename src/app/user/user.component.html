@@ -1,0 +1,68 @@
+<app-top-bar2></app-top-bar2>
+
+<div class="container">
+
+<h2>Perfil del usuario</h2>
+
+<h4> <br> Email: &nbsp;&nbsp;{{ user.email }} </h4>
+<h4> Usuario: &nbsp;&nbsp;{{ user.username }} </h4>
+<h4> Nombre: &nbsp;&nbsp;{{ user.name }} </h4>
+<h4> Sexo: &nbsp;&nbsp;{{ user.sex }} </h4>
+<h4> Pais: &nbsp;&nbsp;{{ user.country }} </h4>
+<h4> Descripcion: &nbsp;&nbsp;{{ user.description }} </h4>
+
+<br/>
+
+<h2>Opiniones</h2>
+
+<div *ngFor="let review of reviews; let i = index" [attr.data-index]="i">
+  <div *ngIf="review.type === 'USER'">
+      <h3 *ngIf="review.title">
+      <br/>{{ review.title }}
+      </h3>
+      <p *ngIf="review.comment">
+        {{ review.comment }}
+      </p>
+      <p *ngIf="review.score">
+      Puntuacion: {{ review.score }}
+      </p>
+      <p *ngIf="review.date">
+      {{ review.date }}
+      </p>
+      <p *ngIf="creators">      
+      <a 
+      [title]="creators[i+1].userId"
+      [routerLink]="['/user2', creators[i+1].userId]">
+      {{ creators[i+1].username }}
+      </a>
+      </p>
+  </div>
+</div>
+
+<br/><br/>
+
+<h3>Añadir comentario</h3>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(title.value, comment.value, score.value)">
+
+<div>
+  <label for="title">
+  Titulo
+  </label>
+  <input id="title" type="text" formControlName="title" #title>&nbsp;&nbsp;
+  <label for="comment">
+    Descripcion
+  </label>
+  <input id="comment" type="text" formControlName="comment" #comment>&nbsp;&nbsp;
+  <label for="score">
+  Puntuacion
+</label>
+<input id="score" type="text" formControlName="score" #score>&nbsp;&nbsp;
+
+</div>
+<button class="button" type="submit">Enviar</button>
+</form>
+
+<br/><br/><br/><br/>
+
+</div>

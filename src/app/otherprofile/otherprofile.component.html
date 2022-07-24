@@ -1,0 +1,71 @@
+<app-top-bar2></app-top-bar2>
+
+<div class="container">
+
+<h2>Perfil del usuario</h2>
+<!--
+<div *ngFor="let user of user">
+<h4> <br> Email: &nbsp;&nbsp;{{ user.email }} </h4>
+<h4> Usuario: &nbsp;&nbsp;{{ user.user }} </h4>
+<h4 *ngIf="user.name"> Nombre: &nbsp;&nbsp;{{ user.name }} </h4>
+<h4 *ngIf="user.sex"> Sexo: &nbsp;&nbsp;{{ user.sex }} </h4>
+<h4 *ngIf="user.country"> Pais: &nbsp;&nbsp;{{ user.country }} </h4>
+<h4 *ngIf="user.description"> Descripcion: &nbsp;&nbsp;{{ user.description }} </h4>
+</div>
+
+<br/>-->
+
+<h3>Listas de comics</h3>
+
+<p><a routerLink="/list">Comics en propiedad</a></p>
+<p><a routerLink="/list">Comics a la venta</a></p>
+<p><a routerLink="/list">Comics deseados</a></p>
+
+<br/><br/>
+
+<h2>Opiniones</h2>
+
+<div *ngFor="let review of reviews">
+<div *ngIf="review.type === 'user'">
+  <h3 *ngIf="review.title">
+  <br/>{{ review.title }}
+  </h3>
+  <p *ngIf="review.comment">
+    {{ review.comment }}
+  </p>
+  <p *ngIf="review.score">
+  Puntuacion: {{ review.score }}
+  </p>
+  <p *ngIf="review.date">
+  {{ review.date }}
+  </p>
+</div>
+</div>
+
+<br/><br/>
+
+<h3>Añadir comentario</h3>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+<div>
+<label for="title">
+Titulo
+</label>
+  <input id="title" type="text" formControlName="title">&nbsp;&nbsp;
+  <label for="description">
+    Descripcion
+  </label>
+  <input id="description" type="text" formControlName="description">&nbsp;&nbsp;
+  <label for="score">
+  Puntuacion
+</label>
+<input id="score" type="text" formControlName="score">&nbsp;&nbsp;
+
+</div>
+<button class="button" type="submit">Enviar</button>
+</form>
+
+<br/><br/><br/><br/>
+
+</div>
