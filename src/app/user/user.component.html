@@ -63,6 +63,30 @@
 <button class="button" type="submit">Enviar</button>
 </form>
 
+<br/>
+<h3>Mis listas de cómics</h3>
+
+<p>
+<a 
+  [routerLink]="['/list', id]">
+  Cómics en propiedad
+</a>
+</p>
+
+<p>
+<a 
+  [routerLink]="['/listsaled', id]">
+  Cómics a la venta
+</a>
+</p>
+
+<p>
+<a 
+  [routerLink]="['/listdesired', id]">
+  Cómics deseados
+</a>
+</p>
+
 <br/><br/><br/><br/>
 
 </div>

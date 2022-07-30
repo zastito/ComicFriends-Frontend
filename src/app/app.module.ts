@@ -21,6 +21,9 @@ import { OtherprofileComponent } from './otherprofile/otherprofile.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { UserComponent } from './user/user.component';
 import { User2Component } from './user2/user2.component';
+import { OtherlistComponent } from './otherlist/otherlist.component';
+import { OtherlistdesiredComponent } from './otherlistdesired/otherlistdesired.component';
+import { OtherlistsaledComponent } from './otherlistsaled/otherlistsaled.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -54,7 +57,10 @@ import { FormsModule } from '@angular/forms';
       { path: 'comic/:comicId', component: ComicComponent},
       { path: 'shipping/:comicPriceId', component: ShippingComponent },
       { path: 'user/:userId', component: UserComponent },
-      { path: 'user2/:userId', component: User2Component }
+      { path: 'user2/:userId', component: User2Component },
+      { path: 'list/:userId', component: OtherlistComponent },
+      { path: 'listdesired/:userId', component: OtherlistdesiredComponent },
+      { path: 'listsaled/:userId', component: OtherlistsaledComponent }
     ])
   ],
   declarations: [
@@ -74,7 +80,10 @@ import { FormsModule } from '@angular/forms';
     OtherprofileComponent,
     ShippingComponent,
     UserComponent,
-    User2Component
+    User2Component,
+    OtherlistComponent,
+    OtherlistdesiredComponent,
+    OtherlistsaledComponent
   ],
   bootstrap: [
     AppComponent
