@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Comic } from '../comic';
 import { ComicfriendsService } from '../comicfriends.service';
 import { ComicPrice } from '../comicPrice';
@@ -18,6 +18,7 @@ export class OtherlistsaledComponent implements OnInit {
   username4 : string = '';
 
   constructor(
+    private route:ActivatedRoute,
     private router:Router,
     private comicfriendsService: ComicfriendsService
   ) {
