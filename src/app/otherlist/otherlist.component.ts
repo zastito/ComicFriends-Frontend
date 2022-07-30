@@ -56,5 +56,5 @@ export class OtherlistComponent implements OnInit {
           });
   }
 
-
+ }
 }
