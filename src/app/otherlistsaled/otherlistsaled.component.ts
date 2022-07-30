@@ -64,16 +64,14 @@ export class OtherlistsaledComponent implements OnInit {
                     window.alert(error.error.message);
                   }
                 });
-            }    
-          }
-        },
-        error => {
-          if (error != null) {
-            debugger;
-            window.alert(error.error.message);
-          }
-        });
-  }
+              }},    
+          error => {
+            if (error != null) {
+              debugger;
+              window.alert(error.error.message);
+            }
+          });
+    }
 
   }
 
