@@ -54,7 +54,7 @@ export class OtherlistComponent implements OnInit {
               window.alert(error.error.message);
             }
           });
-  }
+    }
 
  }
 }
