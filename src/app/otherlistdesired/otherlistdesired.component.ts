@@ -12,7 +12,6 @@ export class OtherlistdesiredComponent implements OnInit {
 
   comics = Comic;
   show: boolean = true;
-  username3 : string = '';
 
   constructor(
     private route:ActivatedRoute,
@@ -29,25 +28,25 @@ export class OtherlistdesiredComponent implements OnInit {
       this.comicfriendsService.getUserById(id).subscribe(
         data => {
           if (data != null) {
-            this.username3 = data.username;
+            let username = data.username;
+
+            this.comicfriendsService.getDesiredComics(username).subscribe(
+              data => {
+                if (data != null) {
+                  this.comics = data;
+                }
+              },
+              error => {
+                if (error != null) {
+                  window.alert(error.error.message);
+                }
+              });
         }},
         error => {
           if (error != null) {
             window.alert(error.error.message);
           }
         });
-
-        this.comicfriendsService.getDesiredComics(this.username3).subscribe(
-          data => {
-            if (data != null) {
-              this.comics = data;
-            }
-          },
-          error => {
-            if (error != null) {
-              window.alert(error.error.message);
-            }
-          });
     }
   }
 

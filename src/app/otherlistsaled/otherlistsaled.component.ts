@@ -13,9 +13,8 @@ export class OtherlistsaledComponent implements OnInit {
 
   comics = Comic;
   prices: number[] = [];
-  sprices: string[] = [];
+  sprices2: string[] = [];
   show: boolean = true;
-  username4 : string = '';
 
   constructor(
     private route:ActivatedRoute,
@@ -32,7 +31,40 @@ export class OtherlistsaledComponent implements OnInit {
       this.comicfriendsService.getUserById(id).subscribe(
         data => {
           if (data != null) {
-            this.username4 = data.username;
+            let username = data.username;
+
+            this.comicfriendsService.getForSaleComics(username).subscribe(
+              data => {
+                if (data != null) {
+                  this.comics = data;
+          
+                  this.comicfriendsService.getComicPrices().subscribe(
+                    data => {
+                      if (data != null) {
+                        let count = 0;
+              
+                        for (let i in data) {
+                          const result = data[i];    
+                          let a = result.user.username;
+              
+                          if (a.includes(username)) {
+                            this.sprices2.push(result.price);
+                            count++;
+                          }
+                        }
+                    }},
+                    error => {
+                      if (error != null) {
+                        window.alert(error.error.message);
+                      }
+                    });
+                  }},    
+              error => {
+                if (error != null) {
+                  debugger;
+                  window.alert(error.error.message);
+                }
+              });
         }},
         error => {
           if (error != null) {
@@ -40,38 +72,7 @@ export class OtherlistsaledComponent implements OnInit {
           }
         });
 
-        this.comicfriendsService.getForSaleComics(this.username4).subscribe(
-          data => {
-            if (data != null) {
-              this.comics = data;
-      
-              this.comicfriendsService.getComicPrices().subscribe(
-                data => {
-                  if (data != null) {
-                    let count = 0;
-          
-                    for (let i in data) {
-                      const result = data[i];    
-                      let a = result.user.username;
-          
-                      if (a.includes(this.username4)) {
-                        this.sprices.push(result.price);
-                        count++;
-                      }
-                    }
-                }},
-                error => {
-                  if (error != null) {
-                    window.alert(error.error.message);
-                  }
-                });
-              }},    
-          error => {
-            if (error != null) {
-              debugger;
-              window.alert(error.error.message);
-            }
-          });
+        
     }
 
   }

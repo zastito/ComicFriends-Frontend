@@ -13,11 +13,6 @@ export class OtherlistComponent implements OnInit {
 
   comics = Comic;
   show: boolean = true;
-  username2 : string = '';
-
-  checkoutForm = this.formBuilder.group({
-    precio: '',
-  });
 
   constructor(
     private route:ActivatedRoute,
@@ -35,7 +30,19 @@ export class OtherlistComponent implements OnInit {
       this.comicfriendsService.getUserById(id).subscribe(
         data => {
           if (data != null) {
-            this.username2 = data.username;
+            let username = data.username;
+
+            this.comicfriendsService.getOwnedComics(username).subscribe(
+              data => {
+                if (data != null) {
+                  this.comics = data;
+                }
+              },
+              error => {
+                if (error != null) {
+                  window.alert(error.error.message);
+                }
+              });
         }},
         error => {
           if (error != null) {
@@ -43,17 +50,6 @@ export class OtherlistComponent implements OnInit {
           }
         });
 
-        this.comicfriendsService.getOwnedComics(this.username2).subscribe(
-          data => {
-            if (data != null) {
-              this.comics = data;
-            }
-          },
-          error => {
-            if (error != null) {
-              window.alert(error.error.message);
-            }
-          });
     }
 
  }
