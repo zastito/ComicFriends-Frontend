@@ -11,7 +11,7 @@ margin-top: 10%">
 
 <div *ngFor="let comic of comics; index as indexOfelement;">
   <h3 *ngIf="comic.title">
-  Creators: {{ comic.title }}<br/>
+  {{ comic.title }}<br/>
   </h3>
   <p *ngIf="comic.publisher">
   Publisher: {{ comic.publisher }}<br/>
