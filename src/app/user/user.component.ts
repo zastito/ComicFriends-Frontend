@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
   creator = User[0];
   creators = User;
   receiverUser = User[0];
+  id;
 
   checkoutForm = this.formBuilder.group({
     title: '',
@@ -33,10 +34,10 @@ export class UserComponent implements OnInit {
     private comicfriendsService: ComicfriendsService
   ) {     
 
-    let id = this.route.snapshot.paramMap.get('userId');
+    this.id = this.route.snapshot.paramMap.get('userId');
 
-    if (id != null) {
-      this.comicfriendsService.getUserById(id).subscribe(
+    if (this.id != null) {
+      this.comicfriendsService.getUserById(this.id).subscribe(
         data => {
           if (data != null) {
             this.user.email = data.email;
