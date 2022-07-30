@@ -54,7 +54,7 @@ export class OtherlistsaledComponent implements OnInit {
                       const result = data[i];    
                       let a = result.user.username;
           
-                      if (a.includes(username)) {
+                      if (a.includes(this.username4)) {
                         this.sprices.push(result.price);
                         count++;
                       }
