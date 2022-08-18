@@ -97,7 +97,7 @@ export class ListsaledComponent implements OnInit {
                   count++;
                 }
 
-                this.comicfriendsService.deleteComicfromList(this.comicfriendsService.data2.comicId, user.userId, n, this.prices[comic_num]).subscribe(
+                this.comicfriendsService.deleteComicfromList(this.comicfriendsService.data2.comicId, user.userId, n, this.prices[count-1]).subscribe(
                   error => {
                     if (error != null) {
                       debugger;
