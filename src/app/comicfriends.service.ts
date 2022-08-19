@@ -20,7 +20,7 @@ export class ComicfriendsService {
   data2: Comic = Comic[0];
   //data3: Comic[] = [];
   data4: ComicPrice[] = [];
-  private comicFriendsUrl = 'https://localhost:8080/ComicFriends'; // URL to web api
+  private comicFriendsUrl = 'https://192.168.0.16:8080/ComicFriends'; // URL to web api
 
   constructor(private http: HttpClient) {}
 

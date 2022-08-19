@@ -1,6 +1,6 @@
 {
   "/ComicFriends/*":{
-    "target":"https://localhost:8080",
+    "target":"https://192.168.0.16:8080",
     "secure":true,
     "logLevel":"debug"
   }
