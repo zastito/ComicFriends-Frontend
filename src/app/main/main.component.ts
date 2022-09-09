@@ -29,12 +29,10 @@ export class MainComponent implements OnInit {
   }
 
   onSubmit(comic: string): void {
-    debugger;
     comic = comic.trim();
     this.comicfriendsService.getComicPrices().subscribe(
       data => {
         if (data != null) {
-          debugger;
           let count = 0;
           
           this.comicPrices = [];
@@ -65,7 +63,6 @@ export class MainComponent implements OnInit {
       }},
       error => {
         if (error != null) {
-          debugger;
           window.alert(error.error.message);
         }
       });
@@ -84,9 +81,6 @@ export class MainComponent implements OnInit {
     let n=0;
     let price=0;
 
-/*  let tebeo = (comic_num / 15) -1;
-    let title = comics.get(tebeo+'.name').trim();;
-*/
     this.comicfriendsService.getComic(title).subscribe(
       data => {
         if (data != null) {

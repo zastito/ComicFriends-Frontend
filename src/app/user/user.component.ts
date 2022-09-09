@@ -56,7 +56,6 @@ export class UserComponent implements OnInit {
 
         this.comicfriendsService.getReviews().subscribe(
           data => {
-            debugger;
             if (data != null) {
               let count = 0;
               for (let i in data) {
@@ -95,7 +94,6 @@ export class UserComponent implements OnInit {
     }
 
   ngOnInit() {
-    debugger;
     let id = this.route.snapshot.paramMap.get('userId');
 
     if (id != null) {
@@ -119,7 +117,6 @@ export class UserComponent implements OnInit {
   }}
 
   onSubmit(title: string, comment: string, score: string): void {
-    debugger;
     title = title.trim();
     comment = comment.trim();
     score = score.trim();
@@ -128,7 +125,6 @@ export class UserComponent implements OnInit {
 
     if (!title || !comment || !score) { return; }
 
-    debugger;
     let creator: User = this.comicfriendsService.data;
     let receiverUser: User = this.receiverUser;
     let receiverComic: Comic = null as unknown as Comic;
@@ -150,5 +146,4 @@ export class UserComponent implements OnInit {
         }
       });
     }
-
 }

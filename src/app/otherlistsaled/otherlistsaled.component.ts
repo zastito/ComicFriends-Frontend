@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comic } from '../comic';
 import { ComicfriendsService } from '../comicfriends.service';
-import { ComicPrice } from '../comicPrice';
 
 @Component({
   selector: 'app-otherlistsaled',
@@ -61,7 +60,6 @@ export class OtherlistsaledComponent implements OnInit {
                   }},    
               error => {
                 if (error != null) {
-                  debugger;
                   window.alert(error.error.message);
                 }
               });
@@ -70,11 +68,7 @@ export class OtherlistsaledComponent implements OnInit {
           if (error != null) {
             window.alert(error.error.message);
           }
-        });
-
-        
+        });   
     }
-
   }
-
 }

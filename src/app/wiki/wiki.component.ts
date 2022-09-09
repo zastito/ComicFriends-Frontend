@@ -14,13 +14,6 @@ export class WikiComponent implements OnInit {
 
   criteria='';
   resultado='';
-/*
-  isCollapsed = false;
-
-  toggleMenu(){
-    this.isCollapsed = !this.isCollapsed;
-  }
-*/
   valor1: string = 'volumes';
   valor2: string = 'name';
 
@@ -60,53 +53,6 @@ export class WikiComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  /*
-  operar() {
-    debugger;
-    switch (this.valor1) {
-      case 'Comic' : 
-        switch (this.valor2) {
-          case 'Nombre' : 
-            this.onSubmit('volumes', 'name', this.criteria);
-            break;
-          case 'Editorial' : 
-            this.onSubmit('volumes', 'publisher', this.criteria);
-            break;
-          }          
-          break;
-      case 'Personaje' :         
-        switch (this.valor2) {
-          case 'Nombre' : 
-            this.onSubmit('characters', 'name', this.criteria);
-            break;
-          case 'Editorial' : 
-            this.onSubmit('characters', 'publisher', this.criteria);
-            break;
-          }          
-        break;
-      case 'Localización' :         
-        switch (this.valor2) {
-            case 'Nombre' : 
-              this.onSubmit('locations', 'name', this.criteria);
-              break;
-            case 'Editorial' : 
-              this.onSubmit('locations', 'publisher', this.criteria);
-              break;
-          }
-        break;
-      case 'Creador' :         
-        switch (this.valor2) {
-            case 'Nombre' : 
-              this.onSubmit('people', 'name', this.criteria);
-              break;
-            case 'Editorial' : 
-              this.onSubmit('people', 'publisher', this.criteria);
-              break;
-          }        
-    }
-  }
-  */
 
   operar() {
     switch (this.valor1) {

@@ -52,33 +52,3 @@ export const Review = [
     receiverUser: User
   }
 ];
-/*export const reviews = [
-  {
-    tittle: 'Vendedor muy amable',
-    comment: 'Este usuario me ha vendido un comic en perfectas condiciones. Muy buen trato recibido.',
-    date: '20/04/2021',
-    score: '10',
-    type: 'user'
-  },
-  {
-    tittle: 'Sin queja',
-    comment: 'Trato normal. El envío ha llegado bien.',
-    date: '30/04/2021',
-    score: '6',
-    type: 'user'
-  },
-  {
-    tittle: 'Muy buen comic',
-    comment: 'Este comic nos relata el origen del personaje. Imprescindible',
-    date: '20/04/2021',
-    score: '10',
-    type: 'comic'
-  },
-  {
-    tittle: 'Sin queja',
-    comment: 'No esta mal el comic.',
-    date: '30/04/2021',
-    score: '6',
-    type: 'comic'
-  }
-];*/

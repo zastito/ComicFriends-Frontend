@@ -19,15 +19,6 @@
 <button (click)="operar()">Buscar</button><br/><br/>
 </div>
 
-
-<!--
-Filtro:
-<mat-radio-group name="opciones2" [(ngModel)]="valor2">
-  <mat-radio-button *ngFor="let op2 of Filtro" name="opciones2" [value]="op2"  style="margin: 10px">
-  {{op2}}
-  </mat-radio-button>
-</mat-radio-group>-->
-
 <ul>
   <div *ngFor="let item of json | keyvalue: originalOrder; index as indexOfelement;">
   <div *ngIf="item.key[2] != '.'">
@@ -48,9 +39,7 @@ Filtro:
     </div>
     <div *ngIf="item.key[4] != 'm'">
     <div *ngIf="(item.key[4] != 'd') && (item.key[3] != 'd') && (item.key[3] != '_') && (item.key[3] != 'a') && (item.key[3] != 'f') && (item.key[3] != 'l')">
-      <!--<div *ngIf="(item.key[6] != '_' && item.key[7] != '_' && item.key[4] != 'd' && item.key[3] != 'f' && item.key[13] != 'n' && item.key[3] != '_' && item.key[3] != 'g')">-->
         <div *ngIf="item.value != '' && item.key[8] != 'd'"><li>  {{item.key[3]}}{{item.key[4]}}{{item.key[5]}}{{item.key[6]}}{{item.key[7]}}{{item.key[8]}}{{item.key[9]}}{{item.key[10]}}{{item.key[11]}}{{item.key[12]}}{{item.key[13]}}{{item.key[14]}}{{item.key[15]}}{{item.key[16]}}{{item.key[17]}}{{item.key[18]}}{{item.key[19]}}{{item.key[20]}}{{item.key[21]}}{{item.key[22]}}{{item.key[23]}}{{item.key[24]}}{{item.key[25]}}{{item.key[26]}}{{item.key[27]}}{{item.key[28]}}{{item.key[29]}}{{item.key[30]}} : {{item.value}}</li></div>
-    <!--</div>-->
       <div *ngIf="item.key[8] == 'd'"><li>  {{item.key[3]}}{{item.key[4]}}{{item.key[5]}}{{item.key[6]}}{{item.key[7]}}{{item.key[8]}}{{item.key[9]}}{{item.key[10]}}{{item.key[11]}}{{item.key[12]}}{{item.key[13]}}{{item.key[14]}}{{item.key[15]}}{{item.key[16]}}{{item.key[17]}}{{item.key[18]}}{{item.key[19]}}{{item.key[20]}}{{item.key[21]}}{{item.key[22]}}{{item.key[23]}}{{item.key[24]}}{{item.key[25]}}{{item.key[26]}}{{item.key[27]}}{{item.key[28]}}{{item.key[29]}}{{item.key[30]}} :  <a href="{{item.value}}">{{item.value}}</a></li></div>
     </div>
   </div>

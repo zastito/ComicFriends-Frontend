@@ -50,7 +50,6 @@ export class ProfileComponent implements OnInit {
     this.comicfriendsService.getComicPrices().subscribe(
       data => {
         if (data != null) {
-          debugger;
           let count = 0;
           for (let i in data) {
             const result = data[i];    
@@ -69,7 +68,6 @@ export class ProfileComponent implements OnInit {
       }},
       error => {
         if (error != null) {
-          debugger;
           window.alert(error.error.message);
         }
       });
@@ -77,7 +75,6 @@ export class ProfileComponent implements OnInit {
       this.comicfriendsService.getUsers().subscribe(
         data => {
           if (data != null) {
-            debugger;
             let count = 0;
             for (let i in data) {
               const result = data[i];    
@@ -92,7 +89,6 @@ export class ProfileComponent implements OnInit {
         },
         error => {
           if (error != null) {
-            debugger;
             window.alert(error.error.message);
           }
         });
@@ -106,7 +102,6 @@ export class ProfileComponent implements OnInit {
               for (let i in data) {
                 const result = data[i];
                 if(result.type === 'COMIC'){
-                  debugger;
                   for(let comicPrice of this.comicPrices){
                     if(result.receiverComic.title === this.comicPrices[count1].title){
                       if(result.creator.userId == this.comicfriendsService.data.userId){
@@ -129,7 +124,6 @@ export class ProfileComponent implements OnInit {
                     }
                   }
                 }else if(result.type === 'USER') {
-                  debugger;
                   for(let user of this.users){
                     if(result.receiverUser.username === this.users[count2].username){
                       if(result.creator.userId == this.comicfriendsService.data.userId){
@@ -162,7 +156,6 @@ export class ProfileComponent implements OnInit {
           }},
           error => {
             if (error != null) {
-              debugger;
               window.alert(error.error.message);
             }
           });
@@ -176,11 +169,9 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteReview(id: string) { 
-    debugger;
     if (id != null) {
       this.comicfriendsService.getReviewById(id).subscribe(
         data => {
-          debugger;
           if (data != null) {
             let reviewId = data.reviewId;
             let title = data.title;
@@ -206,7 +197,6 @@ export class ProfileComponent implements OnInit {
         }},
         error => {
           if (error != null) {
-            debugger;
             window.alert(error.error.message);
           }
       });

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Comic } from '../comic';
 import { ComicfriendsService } from '../comicfriends.service';
-import { ComicPrice } from '../comicPrice';
 
 @Component({
   selector: 'app-listsaled',
@@ -20,18 +19,15 @@ export class ListsaledComponent implements OnInit {
     private router:Router,
     private comicfriendsService: ComicfriendsService
   ) {
-    debugger;
     let username = this.comicfriendsService.data.username;   
     this.comicfriendsService.getForSaleComics(username).subscribe(
     data => {
       if (data != null) {
-        debugger;
         this.comics = data;
 
         this.comicfriendsService.getComicPrices().subscribe(
           data => {
             if (data != null) {
-              debugger;
               let count = 0;
     
               for (let i in data) {
@@ -46,7 +42,6 @@ export class ListsaledComponent implements OnInit {
           }},
           error => {
             if (error != null) {
-              debugger;
               window.alert(error.error.message);
             }
           });
@@ -55,7 +50,6 @@ export class ListsaledComponent implements OnInit {
     },
     error => {
       if (error != null) {
-        debugger;
         window.alert(error.error.message);
       }
     });
@@ -65,29 +59,21 @@ export class ListsaledComponent implements OnInit {
   }
 
   delete(comic_num: number) { 
-    debugger;
     let user = this.comicfriendsService.data; 
     let n=1;
-
-    //let price: number= +this.comicfriendsService.data4[comic_num].price;
-    //let price= price0.toString();
 
     let comicId = this.comics[comic_num].comicId;
     let title0 = this.comics[comic_num].title;
     let title = title0.replace('%', '%25');
-    
-    //this.comicfriendsService.getComicPrice(newcomic, price)
 
     this.comicfriendsService.getComic(title).subscribe(
       data => {
         if (data != null) {
-          debugger;
           this.comicfriendsService.data2 = data;
 
           this.comicfriendsService.getComicPrice(comicId, user.userId).subscribe(
             data => {
               if (data != null) {
-                debugger;
                 let count = 0;
       
                 for (let i in data) {
@@ -100,10 +86,8 @@ export class ListsaledComponent implements OnInit {
                 this.comicfriendsService.deleteComicfromList(this.comicfriendsService.data2.comicId, user.userId, n, this.prices[count-1]).subscribe(
                   error => {
                     if (error != null) {
-                      debugger;
                       window.alert(error.error.message);
                     }else {
-                      debugger;
                       window.alert('El cómic ya no está puesto a la venta');
                       this.router.navigateByUrl('/profile');
                     }
@@ -111,7 +95,6 @@ export class ListsaledComponent implements OnInit {
             }},
             error => {
               if (error != null) {
-                debugger;
                 window.alert(error.error.message);
               }
             });
@@ -122,8 +105,5 @@ export class ListsaledComponent implements OnInit {
           window.alert(error.error.message);
         }
       });
-
-
   }
-
 }

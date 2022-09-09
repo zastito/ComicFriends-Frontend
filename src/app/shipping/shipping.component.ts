@@ -3,8 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';
 import { Seller } from '../seller';
-import { Comic } from '../comic';
-import { ComicPrice, ComicPrice2 } from '../comicPrice';
+import { ComicPrice2 } from '../comicPrice';
 import { ComicfriendsService } from '../comicfriends.service';
 
 @Component({
@@ -32,7 +31,6 @@ export class ShippingComponent implements OnInit {
   }
 
   onSubmit(): void {
-    debugger;
     let id = this.route.snapshot.paramMap.get('comicPriceId');
 
     if (id != null){
@@ -41,10 +39,7 @@ export class ShippingComponent implements OnInit {
       this.comicfriendsService.getComicPriceById(cp_id).subscribe(
         data => {
           if (data != null) {
-            debugger;
             let buyerId = this.comicfriendsService.data.userId;
-            //let username = laura;
-            //let mail = laura@gmail.com;
             let sellerId = data.user.userId;
             let total_price = data.price;
             let comicPriceListId = cp_id;
@@ -56,8 +51,6 @@ export class ShippingComponent implements OnInit {
 
             let seller: User = Seller[0];
             seller.userId = sellerId;
-
-            debugger;
             
             let comicPrice: ComicPrice2 = ComicPrice2[0];
             comicPrice.id = comicPriceListId;
@@ -65,32 +58,11 @@ export class ShippingComponent implements OnInit {
 
             let comicPriceList: ComicPrice2[] = [comicPrice]; 
 
-            //Lista -> NO ComicPrice, Revisar esto y el comicprice.ts
-            
-  /*
-            this.comicfriendsService.getComicById(data.comicId).subscribe(
-              data => {
-                if (data != null) {
-                  let comicPriceList.amount = data.amount;
-                  this.receiverComic.comicId = data.comicId;
-                  this.receiverComic.issue = data.issue;
-                  this.receiverComic.publisher = data.publisher;
-                  this.receiverComic.title = data.title;
-                  this.receiverComic.volume = data.volume;
-              }},
-              error => {
-                if (error != null) {
-                  window.alert(error.error.message);
-                }
-              });
-  */
-              debugger;
             const transaction = { buyer, comicPriceList, seller, total_price };
         
             this.comicfriendsService.buyComic(transaction).subscribe(
               data => {
                 if (data != null) {
-                  debugger;
                   console.warn('Pedido realizado', this.checkoutForm.value);
                   window.alert('Pedido realizado');
                   this.checkoutForm.reset();
@@ -99,7 +71,6 @@ export class ShippingComponent implements OnInit {
               },
               error => {
                 if (error != null) {
-                  debugger;
                   window.alert(error.error.message);
                 }
               });
@@ -107,7 +78,6 @@ export class ShippingComponent implements OnInit {
         },
         error => {
           if (error != null) {
-            debugger;
             window.alert(error.error.message);
           }
         });

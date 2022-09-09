@@ -19,13 +19,6 @@
 <br/><br/>
 
 <div *ngFor="let comicPrice of comicPrices; index as indexOfelement;">
-<!--<div
-style="width: 45%;
-       float: left;
-       background-color: #EEEEEE;
-       white-space: nowrap;
-       overflow:hidden !important;
-       text-overflow: ellipsis;">-->
   <h3>
     <a 
       [title]="comicPrice.title"
@@ -34,10 +27,6 @@ style="width: 45%;
     </a>
   </h3>
 
-  <!--
-  <p *ngIf="comic.creators">
-    Creators: {{ comic.creators }}<br/>
-  </p>-->
   <p *ngIf="comicPrice.publisher">
   Publisher: {{ comicPrice.publisher }}<br/>
   </p>
@@ -60,17 +49,6 @@ style="width: 45%;
   {{ comicPrice.owner }}
 </a>
   </p> 
-<!--
-  <div *ngFor="let user of user">
-  <p *ngIf="comic.owner">
-  Owner: <a 
-  [title]="comic.owner"
-  [routerLink]="['/profile', user.id]">
-  {{ comic.owner }}
-  </a> 
-  </p> 
-  </div>
--->
 
 <div *ngIf="comicPrice.title">
   <button (click)="buy(comicPrice.comicPriceId)">

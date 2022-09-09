@@ -55,7 +55,6 @@ export class ComicComponent implements OnInit {
   
         this.comicfriendsService.getReviews().subscribe(
           data => {
-            debugger;
             if (data != null) {
               let count = 0;
               for (let i in data) {
@@ -73,7 +72,6 @@ export class ComicComponent implements OnInit {
 
                     this.reviews[count].date = day + '/' + month + '/' + year + ' ' + hour + ':' + minute + 'h';
 
-                    debugger;
                     this.creators.push(result.creator);
  
                     count++;
@@ -95,7 +93,6 @@ export class ComicComponent implements OnInit {
   }
 
   ngOnInit() { 
-    debugger;
     this.comicfriendsService.getUser(this.comicfriendsService.data.username, this.comicfriendsService.data.password).subscribe(
       data => {
         if (data != null) {
@@ -116,7 +113,6 @@ export class ComicComponent implements OnInit {
   }
 
   onSubmit(title: string, comment: string, score: string): void {
-    debugger;
     title = title.trim();
     comment = comment.trim();
     score = score.trim();
@@ -130,7 +126,6 @@ export class ComicComponent implements OnInit {
     let receiverUser: User = null as unknown as User;
     let reviewId = "0";
 
-    debugger;
     const newReview = { reviewId, title, comment, date, score, type, creator, receiverComic, receiverUser };
 
     this.comicfriendsService.addReview(newReview).subscribe(

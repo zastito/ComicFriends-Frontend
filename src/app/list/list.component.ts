@@ -41,7 +41,6 @@ export class ListComponent implements OnInit {
   }
 
   delete(comic_num: number) { 
-    debugger;
     let user = this.comicfriendsService.data; 
     
     let comicId = this.comics[comic_num].comicId;
@@ -66,8 +65,6 @@ export class ListComponent implements OnInit {
   }
 
   sell(comic_num: number, comics: any, precio: string): void  {
-
-    debugger;
     let title0 = comics[comic_num].title;
     let title = title0.replace('%', '%25');
     let user = this.comicfriendsService.data;
@@ -77,29 +74,9 @@ export class ListComponent implements OnInit {
     this.comicfriendsService.getComic(title).subscribe(
       data => {
         if (data != null) {
-          debugger;
-          //let length = this.comicfriendsService.data3.length;
-          //data.owner = user.username;
-          //this.comicfriendsService.data3.concat(data);
-
           this.comicfriendsService.addComicToList(data.comicId, user.userId, n, price).subscribe(
             data => {
               if (data != null) { 
-                /*
-                  debugger;
-                  this.comicfriendsService.getComicPriceById(data).subscribe(
-                    data => {
-                      if (data != null) {
-                        debugger;
-                        this.comicfriendsService.data4.concat(data);
-                      }
-                    },
-                    error => {
-                      if (error != null) {
-                        debugger;
-                        window.alert(error.error.message);
-                      }
-                    });*/
                 }
               },
             error => {
@@ -112,7 +89,6 @@ export class ListComponent implements OnInit {
       },
       error => {
         if (error != null) {
-          debugger;
           window.alert(error.error.message);
         }
       });

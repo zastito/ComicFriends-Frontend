@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 
 import { Comic } from '../comic';
-//import { user } from '../user';
 import { Review } from '../review';
 
 @Component({
@@ -13,7 +12,6 @@ import { Review } from '../review';
 })
 export class OtherprofileComponent implements OnInit {
 
-  //user = user;
   comics = Comic;
   reviews = Review;
 
