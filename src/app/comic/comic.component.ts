@@ -56,6 +56,7 @@ export class ComicComponent implements OnInit {
         this.comicfriendsService.getReviews().subscribe(
           data => {
             if (data != null) {
+              this.reviews = [];
               let count = 0;
               for (let i in data) {
                 const result = data[i];
