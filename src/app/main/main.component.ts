@@ -26,6 +26,7 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.comicPrices = [];
   }
 
   onSubmit(comic: string): void {
